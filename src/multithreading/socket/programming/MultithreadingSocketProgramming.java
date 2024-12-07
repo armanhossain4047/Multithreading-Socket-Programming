@@ -4,14 +4,10 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.net.Socket; 
 
 public class MultithreadingSocketProgramming {
-
     public static void main(String[] args) {
-
         try {
             ServerSocket server = new ServerSocket(1414);
             System.out.println("Server is Wating for Client");
@@ -19,7 +15,6 @@ public class MultithreadingSocketProgramming {
             boolean Connection = true;
 
             while (Connection) {
-
                 Socket client = server.accept();
                 System.out.println("Client is Connected");
                 DataOutputStream write = new DataOutputStream(client.getOutputStream());
