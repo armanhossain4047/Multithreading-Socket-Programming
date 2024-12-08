@@ -11,7 +11,6 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-
     public static void main(String[] args) {
         try {
             Socket client = new Socket("localhost", 1414);
@@ -25,7 +24,6 @@ public class Client {
                 System.out.println(read.readUTF());
                 String message = input.nextLine();
                 write.writeUTF(message);
-
             }
 
         } catch (IOException e) {

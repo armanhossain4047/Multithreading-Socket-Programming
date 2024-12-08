@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket; 
 
-public class MultithreadingSocketProgramming {
+public class Server {
     public static void main(String[] args) {
         try {
             ServerSocket server = new ServerSocket(1414);
@@ -22,13 +22,13 @@ public class MultithreadingSocketProgramming {
 
                 new Thread(() -> {
                     try {
-                        write.writeUTF("I am Ready to Help you Calculate 2 Number Result:");
+                        write.writeUTF("Server Ready to Help you Calculate 2 Number Result:");
                         while (true) {
                             String ClientSay = read.readUTF();
                             String[] Operation = ClientSay.split(" ");
                             if (Operation.length == 3) {
                                 float Result = Calculator(Float.parseFloat(Operation[0]), Float.parseFloat(Operation[1]), Operation[2]);
-                                write.writeUTF(Float.toString(Result));
+                                write.writeUTF("Result: "+Float.toString(Result));
                             } else {
                                 write.writeUTF("Please Enter Like This Number1 Number2 Sum Do not Use Spetial Character!");
                             }
@@ -65,6 +65,7 @@ public class MultithreadingSocketProgramming {
                 result = num1 - num2;
                 break;
             case "multiplication":
+                
                 result = num1 * num2;
                 break;
             default:
